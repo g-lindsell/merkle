@@ -2,11 +2,13 @@
 #include <vector>
 #include "OrderBookEntry.hpp"
 #include "OrderBook.hpp"
+#include "Wallet.hpp"
 
 class MerkleMain
 {
 public:
-    MerkleMain() = default;
+    // MerkleMain() = default;
+    MerkleMain();
     /** Call this to start the sim */
     void init();
 
@@ -26,4 +28,6 @@ private:
 
     OrderBook orderBook{"20200317.csv"};
     // OrderBook orderBook{"test.csv"};
+
+    Wallet wallet;
 };
