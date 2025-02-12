@@ -64,8 +64,16 @@ void MerkleMain::enterAsk()
         {
             // Pass the tokenized input as a vector to stringsToOBE
             OrderBookEntry obe = CSVReader::stringsToOBE(tokens);
-            // You can further use obe here, like adding it to the order book
-            orderBook.insertOrder(obe);
+            if (wallet.canFulfillOrder(obe))
+            {
+                // You can further use obe here, like adding it to the order book
+                std::cout << "wallet looks good. " << std::endl;
+                orderBook.insertOrder(obe);
+            }
+            else
+            {
+                std::cout << "Wallet has insufficient funds. " << std::endl;
+            }
         }
         catch (const std::exception &e)
         {
