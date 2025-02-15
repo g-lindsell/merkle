@@ -59,7 +59,7 @@ bool Wallet::containsCurrency(std::string type, double amount)
 
 std::string Wallet::toString()
 {
-  /** the most creative thing i can think about 😂*/
+  /** string representation of the wallet */
   std::string s;
   for (std::pair<std::string, double> pair : currencies)
   {
@@ -120,9 +120,8 @@ void Wallet::processSale(OrderBookEntry &sale)
   }
 }
 
-std::ostream& operator<<(std::ostream& os,  Wallet& wallet)
+std::ostream &operator<<(std::ostream &os, Wallet &wallet)
 {
-    os << wallet.toString();
-    return os;
+  os << wallet.toString();
+  return os;
 }
-
